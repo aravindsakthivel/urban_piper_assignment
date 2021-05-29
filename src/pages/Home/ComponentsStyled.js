@@ -62,7 +62,7 @@ const SpinDeleteHolder = styled.div`
   }
   @media only screen and (min-width: 325px) {
     top: 27px;
-    right: 60px;
+    right: 55px;
     z-index: 1;
   }
 `;
@@ -88,6 +88,19 @@ const SuggestionBlock = styled.div`
   }
   &:hover {
     background-color: #78909c;
+  }
+`;
+
+const BottomLine = styled.div`
+  position: absolute;
+  color: white;
+  border-top: 2px solid black;
+  right: 0px;
+  @media only screen and (max-width: 325px) {
+    width: 240px;
+  }
+  @media only screen and (min-width: 325px) {
+    width: 440px;
   }
 `;
 
@@ -128,4 +141,5 @@ export {
   AllResult,
   ClearBlock,
   SpinDeleteHolder,
+  BottomLine,
 };

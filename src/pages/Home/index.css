@@ -6,3 +6,16 @@
 .top-border {
   border-top: 2px solid yellow;
 }
+
+.bottom-line {
+  position: absolute;
+  color: white;
+  border-top: 2px solid black;
+  right: 0px;
+  @media only screen and (max-width: 325px) {
+    width: 240px;
+  }
+  @media only screen and (min-width: 325px) {
+    width: 440px;
+  }
+}
