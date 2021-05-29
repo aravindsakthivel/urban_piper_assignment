@@ -203,10 +203,6 @@ const SearchBar = () => {
         timeout.current = undefined;
       }, 500);
     }
-    if (nameQuery === "") {
-      clearTimeout(timeout.current);
-      addReceived([]);
-    }
   }, [nameQuery]);
 
   useEffect(() => {
