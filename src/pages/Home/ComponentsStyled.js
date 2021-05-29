@@ -12,8 +12,10 @@ const InputBlock = styled.input`
   position: relative;
   left: 35px;
   margin-top: 20px;
-  border-bottom-left-radius: ${({ result }) => (result.length ? 0 : "35px")};
-  border-bottom-right-radius: ${({ result }) => (result.length ? 0 : "35px")};
+  border-bottom-left-radius: ${({ result, value }) =>
+    value.length > 0 && result.length ? 0 : "35px"};
+  border-bottom-right-radius: ${({ result, value }) =>
+    value.length > 0 && result.length ? 0 : "35px"};
   @media only screen and (max-width: 600px) {
     width: 250px;
   }

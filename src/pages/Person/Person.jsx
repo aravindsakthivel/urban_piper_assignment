@@ -100,21 +100,19 @@ function Person() {
                   <Typography className={classes.heading}>Films</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
-                    {crnPerson.films.length > 0 &&
-                      crnPerson.films.map((ele, ind) => (
-                        <div style={{ marginTop: "10px" }}>
-                          <a
-                            href={ele}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={ind}
-                          >
-                            Film {ind + 1}
-                          </a>
-                        </div>
-                      ))}
-                  </Typography>
+                  {crnPerson.films.length > 0 &&
+                    crnPerson.films.map((ele, ind) => (
+                      <div key={ind} style={{ marginTop: "10px" }}>
+                        <a
+                          href={ele}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          key={ind}
+                        >
+                          Film {ind + 1}
+                        </a>
+                      </div>
+                    ))}
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -128,21 +126,19 @@ function Person() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
-                    {crnPerson.starships.length > 0 &&
-                      crnPerson.starships.map((ele, ind) => (
-                        <div style={{ marginTop: "10px" }}>
-                          <a
-                            href={ele}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={ind}
-                          >
-                            Ship {ind + 1}
-                          </a>
-                        </div>
-                      ))}
-                  </Typography>
+                  {crnPerson.starships.length > 0 &&
+                    crnPerson.starships.map((ele, ind) => (
+                      <div style={{ marginTop: "10px" }} key={ind}>
+                        <a
+                          href={ele}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          key={ind}
+                        >
+                          Ship {ind + 1}
+                        </a>
+                      </div>
+                    ))}
                 </AccordionDetails>
               </Accordion>
             </Card>
