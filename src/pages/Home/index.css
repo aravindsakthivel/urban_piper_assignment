@@ -1,21 +1,8 @@
-.search-input {
-    width: 400px;
-    padding: 16px 24px;
-    border-radius: 25px;
-    border: 0;
-    outline: 0;
-
-    font-size: 16px;
-
-    background: #2d2f30;
-    color: #f2f2f2;
+.star_wars_title {
+  width: 200px;
+  margin-top: 50px;
 }
 
-.logo {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.logo img {
-    width: 200px;
+.top-border {
+  border-top: 2px solid yellow;
 }
