@@ -9,6 +9,7 @@ const InputBlock = styled.input`
   background: #2d2f30;
   color: #f2f2f2;
   padding-left: 15px;
+  text-indent: 10px;
   position: relative;
   left: 35px;
   margin-top: 20px;
