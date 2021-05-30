@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const InputBlock = styled.input`
-  height: 50px;
+  height: 45px;
   border-radius: 35px;
   border: 0;
   outline: 0;
@@ -12,6 +12,10 @@ const InputBlock = styled.input`
   position: relative;
   left: 35px;
   margin-top: 20px;
+  border-top-left-radius: ${({ result, value }) =>
+    value.length > 0 && result.length ? "25px" : "35px"};
+  border-top-right-radius: ${({ result, value }) =>
+    value.length > 0 && result.length ? "25px" : "35px"};
   border-bottom-left-radius: ${({ result, value }) =>
     value.length > 0 && result.length ? 0 : "35px"};
   border-bottom-right-radius: ${({ result, value }) =>
@@ -29,8 +33,7 @@ const InputBlock = styled.input`
 
 const SearchSpinnerIcon = styled.img`
   width: ${({ isloading }) => (isloading ? "25px" : "15px")};
-  background-color: ${({ isloading }) => (isloading ? "" : "yellow")};
-  color: black;
+  background-color: ${({ isloading }) => (isloading ? "#2d2f30" : "yellow")};
   border-radius: 25px;
   padding: ${({ isloading }) => (isloading ? "5px" : "10px")};
   animation: ${({ isloading }) => (isloading ? "spin 2s linear infinite" : "")};
@@ -46,7 +49,7 @@ const SearchSpinnerIcon = styled.img`
 
 const Deleter = styled.img`
   width: 30px;
-  border-right: 2px solid black;
+  border-right: 1px solid black;
   padding-right: 5px;
   margin-right: 5px;
   margin-bottom: 2px;
@@ -58,13 +61,13 @@ const SpinDeleteHolder = styled.div`
   float: right;
   position: relative;
   @media only screen and (max-width: 325px) {
-    top: -45px;
-    right: 30px;
+    top: -42px;
+    right: 23px;
     z-index: 1;
   }
   @media only screen and (min-width: 325px) {
-    top: 27px;
-    right: 55px;
+    top: 25px;
+    right: 50px;
     z-index: 1;
   }
 `;
@@ -73,10 +76,7 @@ const SuggestionBlock = styled.div`
   background-color: #2d2f30;
   display: flex;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 7px;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  padding: 10px;
   > div:nth-child(1) {
     > div:nth-child(1) {
       color: #f2f2f2;
@@ -96,13 +96,16 @@ const SuggestionBlock = styled.div`
 const BottomLine = styled.div`
   position: absolute;
   color: white;
-  border-top: 2px solid black;
-  right: 0px;
+  border-top: 1px solid black;
+  right: 5px;
+  width: 440px;
   @media only screen and (max-width: 325px) {
     width: 240px;
+    right: 10px;
   }
-  @media only screen and (min-width: 325px) {
-    width: 440px;
+  @media only screen and (max-width: 425px) {
+    width: 250px;
+    right: 0px;
   }
 `;
 

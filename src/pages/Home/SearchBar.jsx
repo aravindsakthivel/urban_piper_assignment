@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import searchIcon from "./search-solid.svg";
-import spinIcon from "./load-icon-png-7948.png";
+import searchIcon from "./search-solid.svg"
+import spinIcon from "./spinner-solid.svg";
 import deleteIcon from "./delete.svg";
 import {
   InputBlock,
@@ -20,7 +20,7 @@ const SearchBar = () => {
   const [receivedQuery, addReceived] = useState([]);
   const [isloading, setIsloading] = useState(false);
   const STARWARS_API_URL = process.env.REACT_APP_STARWARS_API_URL;
-  const [currentSel, selectCurrent] = useState(1);
+  const [currentSel, selectCurrent] = useState(0);
   const history = useHistory();
 
   let timeout = useRef();

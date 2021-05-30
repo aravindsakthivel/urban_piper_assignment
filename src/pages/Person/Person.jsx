@@ -12,9 +12,10 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Button,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+import { useHistory } from "react-router-dom";
 import starwars from "./star-wars-logo.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,7 @@ function Person() {
   const classes = useStyles();
   const STARWARS_API_URL = process.env.REACT_APP_STARWARS_API_URL;
   const [isloading, setIsloading] = useState(true);
+  const history = useHistory()
   useEffect(() => {
     let url = window.location.href;
     url = url.split("/");
@@ -56,6 +58,11 @@ function Person() {
       });
   }, [STARWARS_API_URL]);
 
+
+  const goBack = () => {
+    history.goBack()
+  }
+
   return (
     <>
       <Grid
@@ -67,81 +74,86 @@ function Person() {
       >
         <Grid item>
           {isloading ? (
-            <CircularProgress />
+            <CircularProgress style={{ color: "yellow" }} />
           ) : (
-            <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={starwars}
-                  title="star wars"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {crnPerson.name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
+            <>
+              <Card className={classes.root}>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={starwars}
+                    title="star wars"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {crnPerson.name}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      Born at {crnPerson.birth_year} {crnPerson.eye_color} eyes{" "}
+                      {crnPerson.height} heighted and color of hair{" "}
+                      {crnPerson.hair_color}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
                   >
-                    Born at {crnPerson.birth_year} {crnPerson.eye_color} eyes{" "}
-                    {crnPerson.height} heighted and color of hair{" "}
-                    {crnPerson.hair_color}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography className={classes.heading}>Films</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  {crnPerson.films.length > 0 &&
-                    crnPerson.films.map((ele, ind) => (
-                      <div key={ind} style={{ marginTop: "10px" }}>
-                        <a
-                          href={ele}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          key={ind}
-                        >
-                          Film {ind + 1}
-                        </a>
-                      </div>
-                    ))}
-                </AccordionDetails>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel2a-content"
-                  id="panel2a-header"
-                >
-                  <Typography className={classes.heading}>
-                    Star Ships
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  {crnPerson.starships.length > 0 &&
-                    crnPerson.starships.map((ele, ind) => (
-                      <div style={{ marginTop: "10px" }} key={ind}>
-                        <a
-                          href={ele}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          key={ind}
-                        >
-                          Ship {ind + 1}
-                        </a>
-                      </div>
-                    ))}
-                </AccordionDetails>
-              </Accordion>
-            </Card>
+                    <Typography className={classes.heading}>Films</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    {crnPerson.films.length > 0 &&
+                      crnPerson.films.map((ele, ind) => (
+                        <div key={ind} style={{ marginTop: "10px" }}>
+                          <a
+                            href={ele}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={ind}
+                          >
+                            Film {ind + 1}
+                          </a>
+                        </div>
+                      ))}
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                  >
+                    <Typography className={classes.heading}>
+                      Star Ships
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    {crnPerson.starships.length > 0 &&
+                      crnPerson.starships.map((ele, ind) => (
+                        <div style={{ marginTop: "10px" }} key={ind}>
+                          <a
+                            href={ele}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={ind}
+                          >
+                            Ship {ind + 1}
+                          </a>
+                        </div>
+                      ))}
+                  </AccordionDetails>
+                </Accordion>
+              </Card>
+              <Button variant="contanied" style={{ marginTop: "10px", backgroundColor: "yellow" }} onClick={goBack}>
+                Go Home
+              </Button>
+            </>
           )}
         </Grid>
       </Grid>
