@@ -109,6 +109,7 @@ const SearchBar = () => {
         <Deleter
           src={deleteIcon}
           nameQuery={nameQuery}
+          receivedQuery={receivedQuery}
           alt="delteIcon"
           onClick={handleDelete}
         />

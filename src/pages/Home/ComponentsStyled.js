@@ -54,8 +54,8 @@ const Deleter = styled.img`
   padding-right: 5px;
   margin-right: 5px;
   margin-bottom: 2px;
-  visibility: ${({ nameQuery }) =>
-    nameQuery.length > 0 ? "visible" : "hidden"};
+  visibility: ${({ nameQuery, receivedQuery }) =>
+    nameQuery.length > 0 && receivedQuery.length > 0 ? "visible" : "hidden"};
 `;
 
 const SpinDeleteHolder = styled.div`
