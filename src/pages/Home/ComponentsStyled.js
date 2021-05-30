@@ -60,15 +60,14 @@ const Deleter = styled.img`
 const SpinDeleteHolder = styled.div`
   float: right;
   position: relative;
+  z-index: 1;
   @media only screen and (max-width: 325px) {
     top: -42px;
     right: 23px;
-    z-index: 1;
   }
   @media only screen and (min-width: 325px) {
     top: 25px;
     right: 50px;
-    z-index: 1;
   }
 `;
 
@@ -77,6 +76,8 @@ const SuggestionBlock = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
   > div:nth-child(1) {
     > div:nth-child(1) {
       color: #f2f2f2;
