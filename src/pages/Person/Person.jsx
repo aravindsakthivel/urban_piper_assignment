@@ -36,7 +36,7 @@ function Person() {
   const classes = useStyles();
   const STARWARS_API_URL = process.env.REACT_APP_STARWARS_API_URL;
   const [isloading, setIsloading] = useState(true);
-  const history = useHistory()
+  const history = useHistory();
   useEffect(() => {
     let url = window.location.href;
     url = url.split("/");
@@ -58,10 +58,9 @@ function Person() {
       });
   }, [STARWARS_API_URL]);
 
-
   const goBack = () => {
-    history.goBack()
-  }
+    history.goBack();
+  };
 
   return (
     <>
@@ -107,7 +106,9 @@ function Person() {
                   >
                     <Typography className={classes.heading}>Films</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
                     {crnPerson.films.length > 0 &&
                       crnPerson.films.map((ele, ind) => (
                         <div key={ind} style={{ marginTop: "10px" }}>
@@ -133,7 +134,9 @@ function Person() {
                       Star Ships
                     </Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
                     {crnPerson.starships.length > 0 &&
                       crnPerson.starships.map((ele, ind) => (
                         <div style={{ marginTop: "10px" }} key={ind}>
@@ -150,7 +153,11 @@ function Person() {
                   </AccordionDetails>
                 </Accordion>
               </Card>
-              <Button variant="contanied" style={{ marginTop: "10px", backgroundColor: "yellow" }} onClick={goBack}>
+              <Button
+                variant="contanied"
+                style={{ marginTop: "10px", backgroundColor: "yellow" }}
+                onClick={goBack}
+              >
                 Go Home
               </Button>
             </>
